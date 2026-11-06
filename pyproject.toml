@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "derivative-observation-gp"
+version = "0.1.0"
+description = "Gaussian process regression with derivative observations, unit invariance, and analytic coverage audits"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "MIT"
+dependencies = ["numpy>=2.2,<3", "scipy>=1.15,<2"]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<9", "matplotlib>=3.10"]
+
+[project.urls]
+Repository = "https://github.com/lcx0731/derivative-observation-gp"
+
+[project.scripts]
+derivative-gp = "derivative_gp.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra"
+filterwarnings = ["error"]
